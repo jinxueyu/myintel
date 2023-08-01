@@ -9,11 +9,11 @@ RUN echo 'gointel' | vncpasswd -f > $HOME/.vnc/passwd
 RUN echo '/bin/env  MOZ_FAKE_NO_SANDBOX=1  dbus-launch xfce4-session'  > $HOME/.vnc/xstartup
 RUN chmod 600 $HOME/.vnc/passwd
 RUN chmod 755 $HOME/.vnc/xstartup
-RUN echo 'whoami ' >>/ma.sh
-RUN echo 'cd ' >>/ma.sh
-RUN echo "su -l -c 'vncserver :2000 -geometry 1360x768' "  >>/ma.sh
-RUN echo 'cd /noVNC-1.2.0' >>/ma.sh
-RUN echo './utils/launch.sh  --vnc localhost:7900 --listen 8900 ' >>/ma.sh
-RUN chmod 755 /ma.sh
+RUN echo 'whoami ' >>/go.sh
+RUN echo 'cd ' >>/go.sh
+RUN echo "su -l -c 'vncserver :2000 -geometry 1360x768' "  >>/go.sh
+RUN echo 'cd /noVNC-1.2.0' >>/go.sh
+RUN echo './utils/launch.sh  --vnc localhost:7900 --listen 8900 ' >>/go.sh
+RUN chmod 755 /go.sh
 EXPOSE 8900
-CMD  /ma.sh 
+CMD  /go.sh 
